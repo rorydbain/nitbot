@@ -4,10 +4,6 @@ Code review from before we had formatters.
 
 ![summary](images/summary.png)
 
-![inline](images/inline.png)
-
-![vague](images/vague.png)
-
 ## What it does
 
 - Reports "Mixed spaces and tabs" on repos with no tabs.
