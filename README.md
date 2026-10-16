@@ -2,7 +2,7 @@
 
 Code review from before we had formatters.
 
-![summary](images/summary.png)
+![nitbot requesting changes](images/changes.png)
 
 ## What it does
 

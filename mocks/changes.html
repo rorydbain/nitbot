@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="style.css">
+<style>
+.badge{width:32px;height:32px;border-radius:50%;background:#d1242f;color:#fff;display:flex;align-items:center;justify-content:center;flex:none;margin:4px 4px 0 14px;border:4px solid #fff;box-sizing:content-box}
+.badge svg{width:16px;height:16px;fill:#fff}
+.rev{border:1px solid #d1d9e0;border-radius:6px;margin-left:52px}
+.rev .hd{display:flex;justify-content:space-between;align-items:center;padding:8px 16px;background:#f6f8fa;border-bottom:1px solid #d1d9e0;border-radius:6px 6px 0 0;color:#59636e}
+.rev .hd b{color:#1f2328}
+.rev .bd{padding:16px}
+.rev .bd p{margin:0 0 12px}
+.rev .bd p:last-child{margin:0}
+.thr{border:1px solid #d1d9e0;border-radius:6px;margin:0 16px 12px;background:#fff;font-family:-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.5;white-space:normal}
+.thr .cm{padding:12px 16px}
+.thr .cm+.cm{border-top:1px solid #d1d9e0}
+.thr .who{display:flex;gap:8px;align-items:center;margin-bottom:8px;color:#59636e}
+.thr .who b{color:#1f2328}
+.thr .who .av{width:24px;height:24px;border-radius:50%;background:#1f2328;display:flex;align-items:center;justify-content:center}
+.thr .who .av svg{width:14px;height:14px}
+.thr p{margin:0}
+.thr .act{background:#f6f8fa;border-top:1px solid #d1d9e0;padding:8px 16px;border-radius:0 0 6px 6px;display:flex;gap:8px;align-items:center}
+.thr .act .rep{flex:1;border:1px solid #d1d9e0;border-radius:6px;background:#fff;padding:4px 12px;color:#59636e}
+.thr .act .res{border:1px solid #d1d9e0;border-radius:6px;background:#fff;padding:4px 12px;font-weight:500}
+.diff .c{overflow:hidden}
+.tl{display:flex;margin-bottom:-6px}
+.diff2{margin-left:52px;margin-top:16px}
+.kw{color:#cf222e}.fn{color:#8250df}
+</style>
+<div class="tl">
+<div class="badge"><svg viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg></div>
+<div style="display:flex;gap:8px;align-items:center;height:40px;margin-left:6px"><div class="avatar" style="width:20px;height:20px;border-radius:50%"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" style="width:12px;height:12px"><path d="M4 7h16M4 12h10M4 17h6"/></svg></div><b>nitbot</b><span class="label">Bot</span><span style="color:#59636e">requested changes <a style="color:#0969da">14 hours ago</a></span></div>
+</div>
+<div class="rev" style="margin-left:0;margin-top:0">
+<div class="hd"><span><b>nitbot</b> <span class="label">Bot</span> <span style="color:#59636e">reviewed</span></span><span>•••</span></div>
+<div class="bd">
+<p>Thanks for picking this up! The overall approach looks sensible to me, but I've left a couple of comments inline that I'd like us to sort out before this goes in. Mostly readability bits, nothing scary.</p>
+<p>Shout if any of it doesn't make sense and I'm happy to chat it through.</p>
+</div>
+<div style="border-top:1px solid #d1d9e0;padding:12px 0 0">
+<div class="diff" style="margin:0 16px 12px;font-size:12px">
+<div class="f" style="display:flex;justify-content:space-between"><span>server/billing/seats.ts</span></div>
+<div class="ln"><span class="n">55</span><span class="c">export function countSeats(organisationMembers: Member[]): number {</span></div>
+<div class="ln"><span class="n">56</span><span class="c">  let total = 0;</span></div>
+<div class="ln add"><span class="n">57</span><span class="c">+  for (let i = 0; i &lt; organisationMembers.length; i++) { total += organisationMembers[i].seats; }</span></div>
+<div class="thr" style="margin:8px 16px 12px 60px">
+<div class="cm"><div class="who"><div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M4 7h16M4 12h10M4 17h6"/></svg></div><b>nitbot</b><span class="label">Bot</span><span>commented 14 hours ago</span></div>
+<p>Could we give <code>i</code> a more descriptive name here? I know it's the usual convention for a loop index, but this loop is doing a fair bit of work (indexing into <code>organisationMembers</code> and then reading <code>.seats</code> off the result), and when I'm skimming the diff I have to keep reminding myself what <code>i</code> actually refers to.</p>
+<p style="margin-top:8px">Something like <code>memberIndex</code> would make the intent a lot clearer for whoever picks this up next. Happy to be talked out of it if you feel strongly though!</p></div>
+<div class="cm"><div class="who"><div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M4 7h16M4 12h10M4 17h6"/></svg></div><b>nitbot</b><span class="label">Bot</span><span>commented 14 hours ago</span></div>
+<p><b>Nit:</b> this line is 99 characters, which is quite a bit over the 80 we usually aim for. Would you mind wrapping it so it fits? It makes side-by-side diffs much easier to read, and it's the sort of thing that's easier to tidy up now than in a follow-up.</p></div>
+<div class="act"><span class="rep">Reply...</span><span class="res">Resolve conversation</span></div>
+</div>
+<div class="ln"><span class="n">58</span><span class="c">  return total;</span></div>
+<div class="ln"><span class="n">59</span><span class="c">}</span></div>
+</div></div></div>
