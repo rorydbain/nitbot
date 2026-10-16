@@ -1,6 +1,6 @@
 # nitbot
 
-Code review from before we had formatters.
+Are you nostalgic for traditional bespoke code reviews? Do you miss fighting over tabs, spaces or line lengths? Great, add nit-bot to your repo now. It is significantly faster than Cursor, Devin, CodeRabbit and other AI code reviewers.
 
 ![nitbot requesting changes](images/changes.png)
 
