@@ -24,6 +24,8 @@ nit-bot knows that every public method needs a docstring, and that a comment abo
 
 ![good comments](images/comments.png)
 
+[Docs](https://www.youtube.com/watch?v=dQw4w9WgXcQ) · [Install](https://www.youtube.com/watch?v=dQw4w9WgXcQ) · [Playground](https://www.youtube.com/watch?v=dQw4w9WgXcQ) · [Pricing](https://www.youtube.com/watch?v=dQw4w9WgXcQ) · [Book a demo](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
 ## What it does
 
 - Reports "Mixed spaces and tabs" on repos with no tabs.
@@ -36,14 +38,11 @@ nit-bot knows that every public method needs a docstring, and that a comment abo
 
 |            | Free        | Pro            | Enterprise            |
 | ---------- | ----------- | -------------- | --------------------- |
-| Nits / day | 3           | Unlimited      | Contact us for more   |
+| Nits / day | 3           | Unlimited      | [Contact us](https://www.youtube.com/watch?v=dQw4w9WgXcQ) for more |
 | Severity   | nit         | NIT            | NIT (blocking)        |
 
 ## Install
 
-```
-npm i -g nitbot
-nitbot review
-```
+See the [install guide](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
 
 It prints one nit and exits 1.
