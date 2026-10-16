@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="style.css">
+<style>
+.badge{width:32px;height:32px;border-radius:50%;background:#d1242f;color:#fff;display:flex;align-items:center;justify-content:center;flex:none;margin:4px 4px 0 14px;border:4px solid #fff;box-sizing:content-box}
+.badge svg{width:16px;height:16px;fill:#fff}
+.rev{border:1px solid #d1d9e0;border-radius:6px;margin-left:52px}
+.rev .hd{display:flex;justify-content:space-between;align-items:center;padding:8px 16px;background:#f6f8fa;border-bottom:1px solid #d1d9e0;border-radius:6px 6px 0 0;color:#59636e}
+.rev .hd b{color:#1f2328}
+.rev .bd{padding:16px}
+.rev .bd p{margin:0 0 12px}
+.rev .bd p:last-child{margin:0}
+.thr{border:1px solid #d1d9e0;border-radius:6px;margin:0 16px 12px;background:#fff;font-family:-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.5;white-space:normal}
+.thr .cm{padding:12px 16px}
+.thr .cm+.cm{border-top:1px solid #d1d9e0}
+.thr .who{display:flex;gap:8px;align-items:center;margin-bottom:8px;color:#59636e}
+.thr .who b{color:#1f2328}
+.thr .who .av{width:24px;height:24px;border-radius:50%;background:#1f2328;display:flex;align-items:center;justify-content:center}
+.thr .who .av svg{width:14px;height:14px}
+.thr p{margin:0}
+.thr .act{background:#f6f8fa;border-top:1px solid #d1d9e0;padding:8px 16px;border-radius:0 0 6px 6px;display:flex;gap:8px;align-items:center}
+.thr .act .rep{flex:1;border:1px solid #d1d9e0;border-radius:6px;background:#fff;padding:4px 12px;color:#59636e}
+.thr .act .res{border:1px solid #d1d9e0;border-radius:6px;background:#fff;padding:4px 12px;font-weight:500}
+.diff .c{overflow:hidden}
+.tl{display:flex;margin-bottom:-6px}
+.diff2{margin-left:52px;margin-top:16px}
+.kw{color:#cf222e}.fn{color:#8250df}
+</style>
+<div class="tl">
+<div class="badge"><svg viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg></div>
+<div style="display:flex;gap:8px;align-items:center;height:40px;margin-left:6px"><div class="avatar" style="width:20px;height:20px;border-radius:50%"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" style="width:12px;height:12px"><path d="M4 7h16M4 12h10M4 17h6"/></svg></div><b>nitbot</b><span class="label">Bot</span><span style="color:#59636e">requested changes <a style="color:#0969da">14 hours ago</a></span></div>
+</div>
+<div class="rev" style="margin-left:0;margin-top:0"><div class="hd"><span><b>nitbot</b> <span class="label">Bot</span> <span style="color:#59636e">reviewed</span></span><span>•••</span></div>
+<div class="bd"><p>Looks good! Two small things on documentation before this can go in.</p></div><div style="border-top:1px solid #d1d9e0;padding:12px 0 0"><div class="diff" style="margin:0 16px 12px;font-size:12px"><div class="f">src/main/java/User.java</div><div class="ln"><span class="n">20</span><span class="c"> public class User {</span></div><div class="ln"><span class="n">21</span><span class="c">     private String name;</span></div><div class="ln add"><span class="n">22</span><span class="c">+    public String getName() {</span></div><div class="ln add"><span class="n">23</span><span class="c">+        return name;</span></div><div class="ln add"><span class="n">24</span><span class="c">+    }</span></div>
+<div class="thr" style="margin:8px 16px 12px 60px"><div class="cm"><div class="who"><div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M4 7h16M4 12h10M4 17h6"/></svg></div><b>nitbot</b><span class="label">Bot</span><span>commented 14 hours ago</span></div><p>Could you add a docstring here? Public methods should always be documented, and a reader should not have to open the body to find out what it does. Something like:</p><pre style="display:block;margin:8px 0;font-size:12px">/**
+ * Gets the name.
+ *
+ * @return the name
+ */</pre><p>I know it feels a bit redundant, but I would rather we were consistent than useful here, and it keeps the Javadoc coverage report green.</p></div><div class="cm"><div class="who"><div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M4 7h16M4 12h10M4 17h6"/></svg></div><b>nitbot</b><span class="label">Bot</span><span>commented 14 hours ago</span></div><p>While you are in here, could you also add a comment above <code>return name;</code> saying <code>// return the name</code>? It is a really tiny thing, but it makes the flow much easier to follow when skimming.</p></div><div class="act"><span class="rep">Reply...</span><span class="res">Resolve conversation</span></div></div></div></div></div>
