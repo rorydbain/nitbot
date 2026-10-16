@@ -36,18 +36,18 @@
 </div>
 <div style="border-top:1px solid #d1d9e0;padding:12px 0 0">
 <div class="diff" style="margin:0 16px 12px;font-size:12px">
-<div class="f" style="display:flex;justify-content:space-between"><span>server/billing/seats.ts</span></div>
-<div class="ln"><span class="n">55</span><span class="c">export function countSeats(organisationMembers: Member[]): number {</span></div>
-<div class="ln"><span class="n">56</span><span class="c">  let total = 0;</span></div>
-<div class="ln add"><span class="n">57</span><span class="c">+  for (let i = 0; i &lt; organisationMembers.length; i++) { total += organisationMembers[i].seats; }</span></div>
+<div class="f" style="display:flex;justify-content:space-between"><span>src/utils/stats.ts</span></div>
+<div class="ln"><span class="n">55</span><span class="c">export function average(temperatureReadings: number[]): number {</span></div>
+<div class="ln"><span class="n">56</span><span class="c">  let sum = 0;</span></div>
+<div class="ln add"><span class="n">57</span><span class="c">+  for (let i = 0; i &lt; temperatureReadings.length; i++) { sum += temperatureReadings[i]; }</span></div>
 <div class="thr" style="margin:8px 16px 12px 60px">
 <div class="cm"><div class="who"><div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M4 7h16M4 12h10M4 17h6"/></svg></div><b>nitbot</b><span class="label">Bot</span><span>commented 14 hours ago</span></div>
-<p>Could we give <code>i</code> a more descriptive name here? I know it's the usual convention for a loop index, but this loop is doing a fair bit of work (indexing into <code>organisationMembers</code> and then reading <code>.seats</code> off the result), and when I'm skimming the diff I have to keep reminding myself what <code>i</code> actually refers to.</p>
-<p style="margin-top:8px">Something like <code>memberIndex</code> would make the intent a lot clearer for whoever picks this up next. Happy to be talked out of it if you feel strongly though!</p></div>
+<p>Could we give <code>i</code> a more descriptive name here? I know it's the usual convention for a loop index, but this loop is doing a fair bit of work (indexing into <code>temperatureReadings</code> and adding each value to <code>sum</code>), and when I'm skimming the diff I have to keep reminding myself what <code>i</code> actually refers to.</p>
+<p style="margin-top:8px">Something like <code>readingIndex</code> would make the intent a lot clearer for whoever picks this up next. Happy to be talked out of it if you feel strongly though!</p></div>
 <div class="cm"><div class="who"><div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M4 7h16M4 12h10M4 17h6"/></svg></div><b>nitbot</b><span class="label">Bot</span><span>commented 14 hours ago</span></div>
-<p><b>Nit:</b> this line is 99 characters, which is quite a bit over the 80 we usually aim for. Would you mind wrapping it so it fits? It makes side-by-side diffs much easier to read, and it's the sort of thing that's easier to tidy up now than in a follow-up.</p></div>
+<p><b>Nit:</b> this line is 89 characters, which is quite a bit over the 80 we usually aim for. Would you mind wrapping it so it fits? It makes side-by-side diffs much easier to read, and it's the sort of thing that's easier to tidy up now than in a follow-up.</p></div>
 <div class="act"><span class="rep">Reply...</span><span class="res">Resolve conversation</span></div>
 </div>
-<div class="ln"><span class="n">58</span><span class="c">  return total;</span></div>
+<div class="ln"><span class="n">58</span><span class="c">  return sum / temperatureReadings.length;</span></div>
 <div class="ln"><span class="n">59</span><span class="c">}</span></div>
 </div></div></div>
